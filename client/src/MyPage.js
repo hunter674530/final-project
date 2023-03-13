@@ -62,7 +62,6 @@ function MyPage({ userId, addAd }) {
   }
   return (
     <div>
-      <h2>Post a New Ad</h2>
         <NavBar />
         <h1>Post a New Ad</h1>
       <form onSubmit={handleSubmit}>
