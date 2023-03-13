@@ -26,12 +26,16 @@ function App() {
   function changeUser(newUser) {
     setUser(newUser);
   }
+  function addAd(newAd) {
+    setAds([...ads, newAd]);
+  }
+
   console.log(user);
   return (
     <div className="App">
       <Home changeUser={changeUser} />
       <Ads ads={ads} tags={tags} />
-      <MyPage ads={ads} user={user} tags={tags} />
+      <MyPage ads={ads} user={user} tags={tags} addAd={addAd} />
     </div>
   );
 }
