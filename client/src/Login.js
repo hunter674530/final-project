@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./App.css";
 import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie';
 
 function Login({ changeUser }) {
   const navigate = useNavigate();
@@ -9,8 +10,7 @@ function Login({ changeUser }) {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [userId, setUserId] = useState(null);
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -24,10 +24,9 @@ function Login({ changeUser }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((newUser) => {
-            changeUser(newUser);
-            navigate('/home')
-            setUserId(newUser.id)
-        })
+          changeUser(newUser);
+          navigate("/home");
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

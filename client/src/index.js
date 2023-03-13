@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './Login';
 import Home from './Home';
 import AdDetails from './AdDetails';
+import MyPage from './MyPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
       <Route path="login" element={<Login />} />
       <Route path="home" element={<Home />} />
       <Route path="ad/:id" element={<AdDetails />} />
+      <Route path="mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
