@@ -1,7 +1,7 @@
-import logo from "./logo.svg";
 import React from "react";
 import { useState } from "react";
 import "./App.css";
+import NavBar from "./NavBar";
 
 function App() {
   const [user, setUser] = useState({});
@@ -28,6 +28,9 @@ function App() {
     });
   }
   console.log(user);
+  if (user.name) {
+    return <NavBar />;
+  }
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
