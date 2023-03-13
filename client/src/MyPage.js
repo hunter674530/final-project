@@ -2,6 +2,7 @@ import React from "react";
 import { useState, UseEffect } from "react";
 import Ad from "./Ad";
 
+
 function MyPage({ ads, user, tags, addAd }) {
   const [formErrors, setFormErrors] = useState([]);
   const [tagId, setTagId] = useState(24);
@@ -93,3 +94,4 @@ function MyPage({ ads, user, tags, addAd }) {
 }
 
 export default MyPage;
+
