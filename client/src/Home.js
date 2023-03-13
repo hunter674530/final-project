@@ -30,7 +30,7 @@ function Home() {
       .then(setTags);
   }, []);
   
-  
+
 
   return (
     <div className="home">
@@ -42,8 +42,7 @@ function Home() {
       ) : (
         <Login changeUser={handleUserChange} />
       )}
-      
-    </div>
+      </div>
   );
 }
 
