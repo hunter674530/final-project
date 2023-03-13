@@ -19,16 +19,22 @@ function Ads({ ads, tags }) {
 
   return (
     <div className="Ads">
+      <div id="centerColumn">
       <h1>Current Ads</h1>
+      </div>
+      <div id="leftColumn">
       <h2>Filter by Tags</h2>
       {tags.map((tag) => (
         <button key={tag.id} onClick={() => handleTagClick(tag.id)}>
           {tag.name}
           </button>
       ))}
+      </div>
+      <div id="centerColumn">
       {filteredAds.map((ad) => (
         <Ad ad={ad} key={ad.id} />
       ))}
+      </div>
     </div>
   );
 }

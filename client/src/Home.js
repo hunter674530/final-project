@@ -6,6 +6,7 @@ import AdDetails from "./AdDetails";
 import Login from "./Login";
 import MyPage from "./MyPage";
 import EditAd from "./EditAd";
+import NavBar from "./NavBar;
 
 function Home() {
   const [ads, setAds] = useState([]);
@@ -36,15 +37,20 @@ function Home() {
       .then((r) => r.json())
       .then(setTags);
   }, []);
-  console.log(userId);
+  
+
 
   return (
     <div className="home">
       {userId ? (
-        <Ads ads={ads} tags={tags} />
+        <>
+        <NavBar />
+        <Ads ads={ads} tags={tags} /> 
+        </>
       ) : (
         <Login changeUser={handleUserChange} />
       )}
+
       <MyPage addAd={addAd} userId={userId} tags={tags} ads={ads} />
       {ads.map((ad) =>
         userId === ad.user.id ? (
@@ -60,6 +66,7 @@ function Home() {
       )}
       <AdDetails ads={ads} />
     </div>
+      </div>
   );
 }
 

@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Ad from "./Ad";
+import NavBar from "./NavBar";
 
-function AdDetails({ ads }) {
+function AdDetails() {
   const { id } = useParams();
   const [ad, setAd] = useState(null);
+  const [ads, setAds] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch("/ads")
+      .then((r) => r.json())
+      .then(setAds);
+  }, []);
+
+  
+
 
   useEffect(() => {
     const selectedAd = ads.find((ad) => ad.id === Number(id));
@@ -17,6 +29,7 @@ function AdDetails({ ads }) {
 
   return (
     <div>
+        <NavBar />
       <h2>{ad.name}</h2>
       <p>{ad.description}</p>
       <img src={ad.image} alt="product/service" />
