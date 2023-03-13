@@ -38,6 +38,7 @@ function MyPage({ ads, userId, tags, addAd }) {
   }
   return (
     <div>
+      <h2>Post a New Ad</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="tagId">Tag:</label>
         <select
