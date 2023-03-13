@@ -31,7 +31,7 @@ function App() {
     <div className="App">
       <Home changeUser={changeUser} />
       <Ads ads={ads} tags={tags} />
-      <MyPage ads={ads} user={user} />
+      <MyPage ads={ads} user={user} tags={tags} />
     </div>
   );
 }
