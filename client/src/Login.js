@@ -9,6 +9,7 @@ function Login({ changeUser }) {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [userId, setUserId] = useState(null);
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -25,6 +26,7 @@ function Login({ changeUser }) {
         r.json().then((newUser) => {
             changeUser(newUser);
             navigate('/home')
+            setUserId(newUser.id)
         })
       } else {
         r.json().then((err) => setErrors(err.errors));
