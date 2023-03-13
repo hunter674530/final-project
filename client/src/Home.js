@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Navigate } from 'react-router-dom'
 import Ads from "./Ads";
+import Ad from "./Ad";
+import AdDetails from "./AdDetails";
 
 function Home() {
   const [ads, setAds] = useState([]);
   const [tags, setTags] = useState([]);
+  
 
   useEffect(() => {
     fetch("/ads")
@@ -18,9 +21,11 @@ function Home() {
   }, []);
   console.log(ads);
 
+
 return(
   <div className="home">
     <Ads ads={ads} tags={tags}/>
+    <AdDetails ads={ads} />
   </div>
 )}
 
