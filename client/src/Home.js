@@ -21,6 +21,10 @@ function Home() {
   function removeAd(oldAd) {
     setAds(ads.filter((ad) => ad.id !== oldAd.id));
   }
+  function changeAd(changedAd) {
+    const filteredAds = ads.filter((ad) => ad.id !== changedAd.id);
+    setAds([...filteredAds, changedAd]);
+  }
 
   useEffect(() => {
     fetch("/ads")
@@ -44,7 +48,14 @@ function Home() {
       <MyPage addAd={addAd} userId={userId} tags={tags} ads={ads} />
       {ads.map((ad) =>
         userId === ad.user.id ? (
-          <EditAd key={ad.id} ad={ad} removeAd={removeAd} />
+          <EditAd
+            key={ad.id}
+            ad={ad}
+            removeAd={removeAd}
+            tags={tags}
+            userId={userId}
+            changeAd={changeAd}
+          />
         ) : null
       )}
       <AdDetails ads={ads} />
