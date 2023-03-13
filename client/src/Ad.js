@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Ad({ ad }) {
   return (
-    <div>
+    <div id="ads">
       <h2>{ad.name}</h2>
       <Link to={`/ad/${ad.id}`}>
       <img src={ad.image} alt="product/service" />

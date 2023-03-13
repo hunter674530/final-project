@@ -35,6 +35,7 @@ function Login({ changeUser }) {
 
   return (
     <div className="App">
+      <body>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
@@ -59,6 +60,7 @@ function Login({ changeUser }) {
           <h1>{err}</h1>
         ))}
       </form>
+      </body>
     </div>
   );
 }
