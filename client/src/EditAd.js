@@ -83,8 +83,9 @@ function EditAd({ ad, removeAd, tags, userId, changeAd }) {
           onChange={(e) => setImage(e.target.value)}
         />
         <button type="submit">Edit Ad</button>
+        <button onClick={handleDelete}>Delete</button>
       </form>
-      <button onClick={handleDelete}>Delete</button>
+      
     </div>
   );
 }

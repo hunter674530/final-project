@@ -6,7 +6,7 @@ import AdDetails from "./AdDetails";
 import Login from "./Login";
 import MyPage from "./MyPage";
 import EditAd from "./EditAd";
-import NavBar from "./NavBar;
+import NavBar from "./NavBar";
 
 function Home() {
   const [ads, setAds] = useState([]);
@@ -51,7 +51,7 @@ function Home() {
         <Login changeUser={handleUserChange} />
       )}
 
-      <MyPage addAd={addAd} userId={userId} tags={tags} ads={ads} />
+      <div id="footer">
       {ads.map((ad) =>
         userId === ad.user.id ? (
           <EditAd
@@ -64,9 +64,9 @@ function Home() {
           />
         ) : null
       )}
+      </div>
       <AdDetails ads={ads} />
     </div>
-      </div>
   );
 }
 

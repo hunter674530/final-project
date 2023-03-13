@@ -24,7 +24,7 @@ function AdDetails() {
   }, [ads, id]);
 
   if (!ad) {
-    return <div>Loading...</div>;
+    return <div> </div>;
   }
 
   return (
