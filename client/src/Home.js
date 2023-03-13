@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./App.css";
 
-function Home() {
-  const [user, setUser] = useState({});
+function Home({ changeUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -20,13 +19,12 @@ function Home() {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((newUser) => setUser(newUser));
+        r.json().then((newUser) => changeUser(newUser));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });
   }
-  console.log(user);
 
   return (
     <div className="App">
