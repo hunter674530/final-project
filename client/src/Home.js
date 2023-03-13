@@ -5,8 +5,7 @@ import Ad from "./Ad";
 import AdDetails from "./AdDetails";
 import Login from "./Login";
 import MyPage from "./MyPage";
-import EditAd from "./EditAd";
-import NavBar from "./NavBar;
+import NavBar from "./NavBar";
 
 function Home() {
   const [ads, setAds] = useState([]);
@@ -18,13 +17,6 @@ function Home() {
   }
   function addAd(newAd) {
     setAds([...ads, newAd]);
-  }
-  function removeAd(oldAd) {
-    setAds(ads.filter((ad) => ad.id !== oldAd.id));
-  }
-  function changeAd(changedAd) {
-    const filteredAds = ads.filter((ad) => ad.id !== changedAd.id);
-    setAds([...filteredAds, changedAd]);
   }
 
   useEffect(() => {
@@ -50,22 +42,6 @@ function Home() {
       ) : (
         <Login changeUser={handleUserChange} />
       )}
-
-      <MyPage addAd={addAd} userId={userId} tags={tags} ads={ads} />
-      {ads.map((ad) =>
-        userId === ad.user.id ? (
-          <EditAd
-            key={ad.id}
-            ad={ad}
-            removeAd={removeAd}
-            tags={tags}
-            userId={userId}
-            changeAd={changeAd}
-          />
-        ) : null
-      )}
-      <AdDetails ads={ads} />
-    </div>
       </div>
   );
 }
